@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let mouse = {
         x: null,
         y: null,
-        radius: 250,
-        offsetX: 3.55,
-        offsetY: 0.7
+        radius: 250
     };
 
     function setCanvasSize() {
@@ -27,8 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener('mousemove', (event) => {
-        mouse.x = event.x + mouse.offsetX;
-        mouse.y = event.y + mouse.offsetY;
+
+        mouse.x = event.clientX + window.scrollX;
+        mouse.y = event.clientY + window.scrollY;
     });
 
     class Particle {
@@ -74,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
                     ctx.lineWidth = 1.4;
                     ctx.beginPath();
-                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.moveTo(particlesArray[a].x - window.scrollX, particlesArray[a].y - window.scrollY);
+                    ctx.lineTo(particlesArray[b].x - window.scrollX, particlesArray[b].y - window.scrollY);
                     ctx.stroke();
                 }
             }
@@ -91,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
-                ctx.moveTo(mouse.x, mouse.y);
-                ctx.lineTo(particlesArray[i].x, particlesArray[i].y);
+                ctx.moveTo(mouse.x - window.scrollX, mouse.y - window.scrollY);
+                ctx.lineTo(particlesArray[i].x - window.scrollX, particlesArray[i].y - window.scrollY);
                 ctx.stroke();
             }
         }
