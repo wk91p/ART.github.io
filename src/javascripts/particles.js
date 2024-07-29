@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener('mousemove', (event) => {
-
-        mouse.x = event.clientX + window.scrollX;
-        mouse.y = event.clientY + window.scrollY;
+        // Calculate mouse position relative to the viewport
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
     });
 
     class Particle {
@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
                     ctx.lineWidth = 1.4;
                     ctx.beginPath();
-                    ctx.moveTo(particlesArray[a].x - window.scrollX, particlesArray[a].y - window.scrollY);
-                    ctx.lineTo(particlesArray[b].x - window.scrollX, particlesArray[b].y - window.scrollY);
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
                     ctx.stroke();
                 }
             }
@@ -90,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
-                ctx.moveTo(mouse.x - window.scrollX, mouse.y - window.scrollY);
-                ctx.lineTo(particlesArray[i].x - window.scrollX, particlesArray[i].y - window.scrollY);
+                ctx.moveTo(mouse.x, mouse.y);
+                ctx.lineTo(particlesArray[i].x, particlesArray[i].y);
                 ctx.stroke();
             }
         }
