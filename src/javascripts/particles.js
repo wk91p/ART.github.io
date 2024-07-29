@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     setCanvasSize();
-  
+
     window.addEventListener('resize', () => {
         setCanvasSize();
         particlesArray = [];
