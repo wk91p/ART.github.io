@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let particlesArray = [];
     const numberOfParticles = 200;
     let mouse = {
-        x: 12,
-        y: 0,
+        x: null,
+        y: null,
         radius: 250
     };
 
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener('mousemove', (event) => {
+        // Calculate mouse position relative to the canvas
         const rect = canvas.getBoundingClientRect();
         mouse.x = event.clientX - rect.left;
         mouse.y = event.clientY - rect.top;
