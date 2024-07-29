@@ -25,8 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener('mousemove', (event) => {
-        mouse.x = event.clientX;
-        mouse.y = event.clientY;
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = event.clientX - rect.left;
+        mouse.y = event.clientY - rect.top;
     });
 
     class Particle {
