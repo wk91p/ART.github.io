@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     setCanvasSize();
-  
+
     window.addEventListener('resize', () => {
         setCanvasSize();
         particlesArray = [];
@@ -25,9 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener('mousemove', (event) => {
-        // Calculate mouse position relative to the viewport
-        mouse.x = event.clientX;
-        mouse.y = event.clientY;
+        // Calculate mouse position relative to the canvas
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = event.clientX - rect.left;
+        mouse.y = event.clientY - rect.top;
     });
 
     class Particle {

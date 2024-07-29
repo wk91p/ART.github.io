@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('about-us-modal');
 
-
     window.addEventListener('resize', function() {
         if (modal.style.display === 'block') {
             setModalDimensions();
@@ -10,14 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'F12' ||
-            (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-            (e.ctrlKey && e.key === 'U')) {
+            (e.ctrlKey === true && e.shiftKey === true && e.key === 'I' || 'i') ||
+            (e.ctrlKey === true && e.key === 'U' || 'u')) {
             e.preventDefault();
         }
     });
 
     document.addEventListener('mousedown', function(e) {
-        if (e.button === 2) {
+        if (e.button === 2 && e.buttons === 2) {
             e.preventDefault();
         }
     });
