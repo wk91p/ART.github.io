@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let particlesArray = [];
     const numberOfParticles = 200;
     let mouse = {
-        x: 0,
+        x: 12,
         y: 0,
         radius: 250
     };
