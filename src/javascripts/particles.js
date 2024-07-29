@@ -26,11 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener('mousemove', (event) => {
         const rect = canvas.getBoundingClientRect();
-        mouse.x = event.clientX - rect.left + window.scrollX;
-        mouse.y = event.clientY - rect.top + window.scrollY;
-
-        // Debugging: log mouse position
-        console.log('Mouse X:', mouse.x, 'Mouse Y:', mouse.y);
+        mouse.x = event.clientX - rect.left;
+        mouse.y = event.clientY - rect.top;
     });
 
     class Particle {
@@ -96,14 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 ctx.moveTo(mouse.x, mouse.y);
                 ctx.lineTo(particlesArray[i].x, particlesArray[i].y);
                 ctx.stroke();
-
-                // Debugging: log connection points
-                console.log('Connecting Mouse to Particle:', {
-                    mouseX: mouse.x,
-                    mouseY: mouse.y,
-                    particleX: particlesArray[i].x,
-                    particleY: particlesArray[i].y
-                });
             }
         }
     }
