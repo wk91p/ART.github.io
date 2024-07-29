@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener('mousemove', (event) => {
-        // Calculate mouse position relative to the viewport
         mouse.x = event.clientX;
         mouse.y = event.clientY;
     });
