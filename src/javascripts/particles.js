@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let mouse = {
         x: null,
         y: null,
-        radius: 250,
-        offsetX: 3.55,
-        offsetY: 0.7
+        radius: 250
     };
 
     function setCanvasSize() {
@@ -19,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     setCanvasSize();
-  
+
     window.addEventListener('resize', () => {
         setCanvasSize();
         particlesArray = [];
@@ -27,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener('mousemove', (event) => {
-        mouse.x = event.x + mouse.offsetX;
-        mouse.y = event.y + mouse.offsetY;
+        mouse.x = event.x;
+        mouse.y = event.y;
     });
 
     class Particle {
